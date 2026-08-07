@@ -24,3 +24,12 @@
 .listing-location::before {
   content: url("/assets/location-pin.svg") / "";
 }
+.listing-details-link {
+  padding-left: 20px;
+  text-decoration: none;
+  color: var(--primary-color);
+}
+.listing-details-link::after {
+  content: "\203A";
+  margin-left: 5px;
+}
