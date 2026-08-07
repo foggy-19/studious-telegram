@@ -5,13 +5,8 @@ import { HomeComponent } from "./home/home.component";
   standalone: true,
   selector: "app-root",
   template: `<main>
-    <header class="brand-name">
-      <img
-        class="bring-logo"
-        src="/assets/logo.svg"
-        alt="logo"
-        aria-hidden="true"
-      />
+    <header>
+      <img src="/assets/logo.svg" alt="logo" aria-hidden="true" />
     </header>
     <section class="content">
       <app-home></app-home>
