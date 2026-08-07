@@ -18,7 +18,10 @@ import { RouterModule } from "@angular/router";
       <p class="listing-location">
         {{ housingLocation.city }}, {{ housingLocation.state }}
       </p>
-      <a [routerLink]="['/details', housingLocation.id]" class="listing-details-link">
+      <a
+        [routerLink]="['/details', housingLocation.id]"
+        class="listing-details-link"
+      >
         Learn More
       </a>
     </section>

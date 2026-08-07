@@ -14,13 +14,15 @@
   margin-bottom: 15px;
 }
 
-.listing-location::before {
-  content: url('/assets/location-pin.svg') / '';
-}
-
 .listing-location {
   font-size: 24pt;
   margin-bottom: 15px;
+  display: inline-block;
+  align-items: center;
+}
+
+.listing-location::before {
+  content: url("/assets/location-pin.svg") / "";
 }
 
 .listing-features > .section-heading {
@@ -46,7 +48,8 @@ li {
   margin-bottom: 15px;
 }
 
-label, input {
+label,
+input {
   display: block;
 }
 label {
@@ -63,7 +66,7 @@ input {
   border-top: none;
   border-right: none;
   border-left: none;
-  border-bottom: solid .3px;
+  border-bottom: solid 0.3px;
 }
 @media (max-width: 1024px) {
   .listing-photo {
