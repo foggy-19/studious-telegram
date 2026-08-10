@@ -3,11 +3,12 @@ import { CommonModule } from "@angular/common";
 import { ActivatedRoute } from "@angular/router";
 import { HousingService } from "../housing.service";
 import { HousingLocation } from "../housing-location";
+import { FormControl, FormGroup, ReactiveFormsModule } from "@angular/forms";
 
 @Component({
   selector: "app-details",
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   template: `
     <article>
       <img
@@ -37,7 +38,27 @@ import { HousingLocation } from "../housing-location";
       </section>
       <section class="listing-apply">
         <h3 class="section-heading">Apply now to live here!</h3>
-        <button class="primary" type="button">Apply Now</button>
+        <form [formGroup]="applyForm" (submit)="onSubmit()">
+          <input
+            id="first-name"
+            type="text"
+            placeholder="First Name"
+            formControlName="firstName"
+          />
+          <input
+            id="last-name"
+            type="text"
+            placeholder="Last Name"
+            formControlName="lastName"
+          />
+          <input
+            id="email"
+            type="email"
+            placeholder="Email"
+            formControlName="email"
+          />
+          <button class="primary" type="submit">Apply Now</button>
+        </form>
       </section>
     </article>
   `,
@@ -47,6 +68,11 @@ export class DetailsComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
   housingService: HousingService = inject(HousingService);
   housingLocation: HousingLocation | undefined;
+  applyForm = new FormGroup({
+    firstName: new FormControl(""),
+    lastName: new FormControl(""),
+    email: new FormControl(""),
+  });
 
   constructor() {
     const housingLocationId =
@@ -54,5 +80,13 @@ export class DetailsComponent {
 
     this.housingLocation =
       this.housingService.getHousingLocationById(housingLocationId);
+  }
+
+  onSubmit() {
+    const firstName = this.applyForm.value.firstName ?? "";
+    const lastName = this.applyForm.value.lastName ?? "";
+    const email = this.applyForm.value.email ?? "";
+
+    this.housingService.submitApplication(firstName, lastName, email);
   }
 }
