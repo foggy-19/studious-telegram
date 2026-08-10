@@ -43,5 +43,15 @@
     "protractor": "~7.0.0",
     "ts-node": "~10.9.0",
     "typescript": "~5.0.4"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 160,
+    "trailingComma": "all",
+    "tabWidth": 2,
+    "semi": true,
+    "bracketSpacing": true,
+    "arrowParens": "always",
+    "endOfLine": "lf"
   }
 }

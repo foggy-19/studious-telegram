@@ -1,9 +1,9 @@
-import { Component } from "@angular/core";
-import { RouterModule } from "@angular/router";
+import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   standalone: true,
-  selector: "app-root",
+  selector: 'app-root',
   template: `<main>
     <header>
       <img src="/assets/logo.svg" alt="logo" aria-hidden="true" />
@@ -12,9 +12,9 @@ import { RouterModule } from "@angular/router";
       <router-outlet> </router-outlet>
     </section>
   </main>`,
-  styleUrls: ["./app.component.css"],
+  styleUrls: ['./app.component.css'],
   imports: [RouterModule],
 })
 export class AppComponent {
-  title = "homes";
+  title = 'homes';
 }

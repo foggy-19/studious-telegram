@@ -1,11 +1,11 @@
-import { Injectable } from "@angular/core";
-import { HousingLocation } from "./housing-location";
+import { Injectable } from '@angular/core';
+import { HousingLocation } from './housing-location';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class HousingService {
-  private url = "http://localhost:3000/locations";
+  private url = 'http://localhost:3000/locations';
 
   constructor() {}
 
@@ -22,6 +22,6 @@ export class HousingService {
   }
 
   submitApplication(firstName: string, lastName: string, email: string): void {
-    console.log("Application submitted:", { firstName, lastName, email });
+    console.log('Application submitted:', { firstName, lastName, email });
   }
 }
