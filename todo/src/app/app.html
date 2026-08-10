@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>{{ title }}</h2>
+
+  <ul class="todo-group">
+    @for (item of items; track $index) {
+    <li class="todo-item" key="{item.id}">
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" [checked]="item.completed" />
+          {{ item.title }}
+        </label>
+      </div>
+    </li>
+    }
+  </ul>
+</div>
