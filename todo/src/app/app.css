@@ -1,3 +1,33 @@
+.container {
+  max-width: none;
+  margin: 1rem;
+}
+
+h2 {
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: flow-row;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  width: min(100%, 32rem);
+}
+
+.form-control {
+}
+
+.form-group > div:first-child {
+  flex: 1;
+}
+
+.form-select {
+  margin-bottom: 1rem;
+  width: min(100%, 16rem);
+}
+
 .todo-group {
-    list-style-type: none;
+  list-style-type: none;
 }
