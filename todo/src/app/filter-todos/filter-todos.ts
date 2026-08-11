@@ -1,10 +1,14 @@
-import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TodoItem } from '../../shared/models/todoItem';
 
 export type TodoItemFilter = (item: TodoItem) => boolean;
 
-const filters: TodoItemFilter[] = [(item: TodoItem) => true, (item: TodoItem) => !item.completed, (item: TodoItem) => item.completed];
+const filters: TodoItemFilter[] = [
+  (_: TodoItem) => true,
+  (item: TodoItem) => !item.completed,
+  (item: TodoItem) => item.completed,
+];
 
 @Component({
   selector: 'app-filter-todos',
@@ -13,17 +17,22 @@ const filters: TodoItemFilter[] = [(item: TodoItem) => true, (item: TodoItem) =>
   styleUrl: './filter-todos.css',
 })
 export class FilterTodos implements OnInit {
-  filter: number = 0;
-  @Output() changeFilterEvent = new EventEmitter<TodoItemFilter>();
+  protected value: number = 0;
+
+  @Input() filter?: TodoItemFilter;
+  @Output() filterChange = new EventEmitter<TodoItemFilter>();
 
   constructor() {}
 
   ngOnInit(): void {
-    this.changeFilter(this.filter);
+    this.update(0);
   }
 
-  changeFilter(value: number) {
-    console.log(`change filter: ${value}`);
-    this.changeFilterEvent.emit(filters[value]);
+  update(value: number) {
+    console.log(`update: ${value}`);
+
+    this.value = value;
+    this.filter = filters[value];
+    this.filterChange.emit(this.filter);
   }
 }
