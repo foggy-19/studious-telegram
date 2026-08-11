@@ -16,9 +16,6 @@ h2 {
   width: min(100%, 32rem);
 }
 
-.form-control {
-}
-
 .form-group > div:first-child {
   flex: 1;
 }
@@ -26,8 +23,4 @@ h2 {
 .form-select {
   margin-bottom: 1rem;
   width: min(100%, 16rem);
-}
-
-.todo-group {
-  list-style-type: none;
 }
