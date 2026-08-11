@@ -3,12 +3,11 @@ import { FormsModule } from '@angular/forms';
 import { TodoItem } from '../shared/models/todoItem';
 import { TodoList } from './todo-list/todo-list';
 import { AddTodo } from './add-todo/add-todo';
-
-const filters = [(item: TodoItem) => item, (item: TodoItem) => !item.completed, (item: TodoItem) => item.completed];
+import { FilterTodos, TodoItemFilter } from './filter-todos/filter-todos';
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, TodoList, AddTodo],
+  imports: [FormsModule, TodoList, AddTodo, FilterTodos],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -19,20 +18,6 @@ export class App {
     new TodoItem('Learn TypeScript', 'Learn TypeScript programming language', true),
     new TodoItem('Build a Todo App', 'Build a simple todo application using Angular and TypeScript', false),
   ];
-  listFilter: number = 0;
 
-  get visibleItems(): TodoItem[] {
-    let value = this.listFilter;
-    return this.items.filter(filters[value]);
-  }
-
-  addTodo(todo: TodoItem) {
-    console.log(`add todo: ${todo}`);
-    this.items.push(todo);
-  }
-
-  filterChanged(filter: number) {
-    console.log(`filter changed: ${filter}`);
-    this.listFilter = filter;
-  }
+  filter?: TodoItemFilter;
 }

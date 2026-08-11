@@ -1,0 +1,5 @@
+<select class="form-select" [(ngModel)]="filter" (ngModelChange)="changeFilter($event)">
+  <option [value]="0">All</option>
+  <option [value]="1">Unfulffiled</option>
+  <option [value]="2">Fulffiled</option>
+</select>

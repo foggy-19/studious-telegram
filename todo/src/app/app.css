@@ -6,8 +6,3 @@
 h2 {
   margin-bottom: 2rem;
 }
-
-.form-select {
-  margin-bottom: 1rem;
-  width: min(100%, 16rem);
-}

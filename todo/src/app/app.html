@@ -1,13 +1,9 @@
 <div class="container">
   <h2>{{ title }}</h2>
 
-  <app-add-todo (addTodoEvent)="addTodo($event)"></app-add-todo>
+  <app-add-todo (addTodoEvent)="items.push($event)"></app-add-todo>
 
-  <select class="form-select" [(ngModel)]="listFilter">
-    <option [value]="0">All</option>
-    <option [value]="1">Unfulffiled</option>
-    <option [value]="2">Fulffiled</option>
-  </select>
+  <app-filter-todos (changeFilterEvent)="filter = $event"></app-filter-todos>
 
-  <app-todo-list [todos]="visibleItems"></app-todo-list>
+  <app-todo-list [todos]="filter ? items.filter(filter) : items"></app-todo-list>
 </div>
