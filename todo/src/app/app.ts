@@ -5,7 +5,7 @@ import { EventType } from '../shared/models/Event';
 import { TodoList } from './todo-list/todo-list';
 import { AddTodo } from './add-todo/add-todo';
 import { FilterTodos, TodoItemFilter } from './filter-todos/filter-todos';
-import events from '../shared/services/EventService';
+import { EventService } from '../shared/services/EventService';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +23,7 @@ export class App {
 
   filter?: TodoItemFilter;
 
-  constructor() {
+  constructor(events: EventService) {
     events.listen<TodoItem>(EventType.RemoveTodo, (todo: TodoItem) => {
       this.removeTodo(todo);
     });
@@ -34,6 +34,6 @@ export class App {
   }
 
   removeTodo(todo: TodoItem) {
-    this.items = this.items.filter(item => item.id !== todo.id);
+    this.items = this.items.filter((item) => item.id !== todo.id);
   }
 }
