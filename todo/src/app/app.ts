@@ -37,9 +37,8 @@ export class App implements OnInit {
       next: (data) => {
         this.items = data;
       },
-      error: (err: any) => {
-        console.error(`error`, err);
-        alert(`Unable to fetch items.`);
+      error: (err: Error) => {
+        alert(err.message);
       },
     });
   }
@@ -49,9 +48,8 @@ export class App implements OnInit {
       next: (todo: TodoItem) => {
         this.items.push(todo);
       },
-      error: (err: any) => {
-        console.error(`error`, err);
-        alert(`Unable to add item.`);
+      error: (err: Error) => {
+        alert(err.message);
       },
     });
   }
@@ -61,9 +59,8 @@ export class App implements OnInit {
       next: () => {
         this.items = this.items.filter((item) => item.id !== todo.id);
       },
-      error: (err) => {
-        console.error('error', err);
-        alert(`Unable to remove item.`);
+      error: (err: Error) => {
+        alert(err.message);
       },
     });
   }
