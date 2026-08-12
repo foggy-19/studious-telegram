@@ -1,21 +1,26 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-todo-list-item',
-  imports: [],
+  imports: [NgClass],
   templateUrl: './todo-list-item.html',
   styleUrl: './todo-list-item.css',
 })
 export class TodoListItem {
   @Input() title!: string;
-  @Input() fulfiled!: boolean;
-  @Output() fulfiledChange = new EventEmitter<boolean>();
+  @Input() fullfilled!: boolean;
+  @Output() fullfilledChange = new EventEmitter<boolean>();
 
   constructor() {}
 
+  get cssClasses() {
+    return { 'strikeout text-muted': this.fullfilled };
+  }
+
   toggle() {
     console.log(`toggle`);
-    this.fulfiled = !this.fulfiled;
-    this.fulfiledChange.emit(this.fulfiled);
+    this.fullfilled = !this.fullfilled;
+    this.fullfilledChange.emit(this.fullfilled);
   }
 }
