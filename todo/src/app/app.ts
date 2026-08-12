@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TodoItem } from '../shared/models/TodoItem';
 import { EventType } from '../shared/models/Event';
@@ -6,6 +6,7 @@ import { TodoList } from './todo-list/todo-list';
 import { AddTodo } from './add-todo/add-todo';
 import { FilterTodos, TodoItemFilter } from './filter-todos/filter-todos';
 import { EventService } from '../shared/services/EventService';
+import { TodoService } from './todo-service';
 
 @Component({
   selector: 'app-root',
@@ -13,27 +14,57 @@ import { EventService } from '../shared/services/EventService';
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
-export class App {
+export class App implements OnInit {
   title: string = 'todo';
-  items: TodoItem[] = [
-    new TodoItem('0', 'Learn Angular', 'Learn Angular framework for building web applications', false),
-    new TodoItem('1', 'Learn TypeScript', 'Learn TypeScript programming language', true),
-    new TodoItem('2', 'Build a Todo App', 'Build a simple todo application using Angular and TypeScript', false),
-  ];
-
+  items: TodoItem[] = [];
   filter?: TodoItemFilter;
 
-  constructor(events: EventService) {
+  constructor(
+    private events: EventService,
+    private todoService: TodoService,
+  ) {
     events.listen<TodoItem>(EventType.RemoveTodo, (todo: TodoItem) => {
       this.removeTodo(todo);
     });
   }
 
+  ngOnInit(): void {
+    this.getTodos();
+  }
+
+  getTodos() {
+    this.todoService.getTodos().subscribe({
+      next: (data) => {
+        this.items = data;
+      },
+      error: (err: any) => {
+        console.error(`error`, err);
+        alert(`Unable to fetch items.`);
+      },
+    });
+  }
+
   addTodo(todo: TodoItem) {
-    this.items.push(todo);
+    this.todoService.addTodo(todo).subscribe({
+      next: (todo: TodoItem) => {
+        this.items.push(todo);
+      },
+      error: (err: any) => {
+        console.error(`error`, err);
+        alert(`Unable to add item.`);
+      },
+    });
   }
 
   removeTodo(todo: TodoItem) {
-    this.items = this.items.filter((item) => item.id !== todo.id);
+    this.todoService.removeTodo(todo.id).subscribe({
+      next: () => {
+        this.items = this.items.filter((item) => item.id !== todo.id);
+      },
+      error: (err) => {
+        console.error('error', err);
+        alert(`Unable to remove item.`);
+      },
+    });
   }
 }

@@ -1,0 +1,29 @@
+{
+  "todos": [
+    {
+      "id": "0",
+      "title": "Learn Angular",
+      "description": "Learn Angular framework for building web applications",
+      "completed": false
+    },
+    {
+      "id": "2",
+      "title": "Get coffee",
+      "description": "Drink some caffeine",
+      "completed": true
+    },
+    {
+      "id": "3",
+      "title": "Build a Todo App",
+      "description": "Build a simple todo application using Angular and TypeScript",
+      "completed": false
+    },
+    {
+      "id": "4",
+      "title": "$1000",
+      "description": "Money on my mind",
+      "completed": false
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

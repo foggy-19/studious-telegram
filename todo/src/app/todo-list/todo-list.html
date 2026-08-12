@@ -2,7 +2,7 @@
 <p>No items found.</p>
 } @else {
 <ul class="todo-group">
-  @for (todo of todos; track todo) {
+  @for (todo of todos; track todo.id) {
   <app-todo-list-item [item]="todo"></app-todo-list-item>
   }
 </ul>
