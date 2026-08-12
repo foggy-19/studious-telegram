@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { TodoItem } from '../../shared/models/todoItem';
+import { TodoListItem } from '../todo-list-item/todo-list-item';
 
 @Component({
   selector: 'app-todo-list',
-  imports: [],
+  imports: [TodoListItem],
   templateUrl: './todo-list.html',
   styleUrl: './todo-list.css',
 })
@@ -11,9 +12,4 @@ export class TodoList {
   @Input() todos: TodoItem[] = [];
 
   constructor() {}
-
-  toggleItem(item: TodoItem) {
-    console.log(`Toggling item: ${item}`);
-    item.completed = !item.completed;
-  }
 }
