@@ -1,4 +1,4 @@
 .form-select {
+  width: min(100%, calc(32rem * 0.4));
   margin-bottom: 1rem;
-  width: min(100%, 16rem);
 }
