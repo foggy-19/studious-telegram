@@ -29,8 +29,6 @@ export class FilterTodos implements OnInit {
   }
 
   update(value: number) {
-    console.log(`update: ${value}`);
-
     this.value = value;
     this.filter = filters[value];
     this.filterChange.emit(this.filter);

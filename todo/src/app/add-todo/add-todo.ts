@@ -10,13 +10,20 @@ import { TodoItem } from '../../shared/models/TodoItem';
 })
 export class AddTodo {
   @Output() addTodoEvent = new EventEmitter<TodoItem>();
-  newItemText: string = '';
+  title: string = '';
 
   constructor() {}
 
-  addItem() {
-    const todoItem = new TodoItem(this.newItemText, '', false);
-    this.addTodoEvent.emit(todoItem);
-    this.newItemText = '';
+  addTodoItem() {
+    this.addTodoEvent.emit(new TodoItem(this.generateUuid(), this.title, '', false));
+    this.title = '';
+  }
+
+  private generateUuid(): string {
+    if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+      return crypto.randomUUID();
+    }
+
+    return Math.random().toString(36).slice(2) + Date.now().toString(36);
   }
 }

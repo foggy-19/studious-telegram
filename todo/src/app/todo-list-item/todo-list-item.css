@@ -1,3 +1,32 @@
+.todo-item {
+  list-style: none;
+  width: min(100%, 32rem);
+}
+
+.todo-item-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 50%;
+}
+
+.form-check-input {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+}
+
+.form-check-label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .strikeout {
   text-decoration: line-through;
 }

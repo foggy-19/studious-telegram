@@ -1,7 +1,7 @@
 <div class="container">
   <h2>{{ title }}</h2>
 
-  <app-add-todo (addTodoEvent)="items.push($event)"></app-add-todo>
+  <app-add-todo (addTodoEvent)="addTodo($event)"></app-add-todo>
 
   <app-filter-todos [(filter)]="filter"></app-filter-todos>
 

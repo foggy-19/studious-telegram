@@ -3,12 +3,12 @@
       <input
         type="text"
         class="form-control"
-        name="new-item-text"
-        [(ngModel)]="newItemText"
+        name="new-todo-text"
+        [(ngModel)]="title"
         placeholder="Enter todo item"
       />
     </div>
     <div>
-      <button type="submit" class="btn btn-primary" (click)="$event.preventDefault(); addItem()">Add Todo</button>
+      <button type="submit" class="btn btn-primary" (click)="$event.preventDefault(); addTodoItem()">Add Todo</button>
     </div>
   </form>

@@ -1,5 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { NgClass } from '@angular/common';
+import { Event, EventType } from '../../shared/models/Event';
+import events from '../../shared/services/EventService';
+import { TodoItem } from '../../shared/models/TodoItem';
 
 @Component({
   selector: 'app-todo-list-item',
@@ -8,19 +11,19 @@ import { NgClass } from '@angular/common';
   styleUrl: './todo-list-item.css',
 })
 export class TodoListItem {
-  @Input() title!: string;
-  @Input() fullfilled!: boolean;
-  @Output() fullfilledChange = new EventEmitter<boolean>();
+  @Input() item!: TodoItem;
 
   constructor() {}
 
   get cssClasses() {
-    return { 'strikeout text-muted': this.fullfilled };
+    return { 'strikeout text-muted': this.item.completed };
   }
 
   toggle() {
-    console.log(`toggle`);
-    this.fullfilled = !this.fullfilled;
-    this.fullfilledChange.emit(this.fullfilled);
+    this.item.completed = !this.item.completed;
+  }
+
+  remove() {
+    events.emit(new Event(EventType.RemoveTodo, this.item));
   }
 }
