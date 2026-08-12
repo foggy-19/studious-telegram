@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { TodoItem } from '../shared/models/todoItem';
+import { TodoItem } from '../shared/models/TodoItem';
 import { TodoList } from './todo-list/todo-list';
 import { AddTodo } from './add-todo/add-todo';
 import { FilterTodos, TodoItemFilter } from './filter-todos/filter-todos';

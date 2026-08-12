@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { TodoItem } from '../../shared/models/todoItem';
+import { TodoItem } from '../../shared/models/TodoItem';
 
 @Component({
   selector: 'app-add-todo',

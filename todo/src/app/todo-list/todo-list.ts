@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { TodoItem } from '../../shared/models/todoItem';
+import { TodoItem } from '../../shared/models/TodoItem';
 import { TodoListItem } from '../todo-list-item/todo-list-item';
 
 @Component({
