@@ -1,0 +1,7 @@
+<div class="todo-app">
+  <app-add-todo (addTodoEvent)="addTodo($event)"></app-add-todo>
+
+  <app-filter-todos [(filter)]="filter"></app-filter-todos>
+
+  <app-todo-list [todos]="filter ? items.filter(filter) : items"></app-todo-list>
+</div>
