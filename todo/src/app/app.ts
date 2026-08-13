@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Todo } from './todo/todo';
+import { Contact } from "./contact/contact";
 
 @Component({
   selector: 'app-root',
-  imports: [Todo],
+  imports: [Todo, Contact],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

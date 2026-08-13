@@ -1,7 +1,18 @@
 h2 {
-  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .container {
-  margin: 1rem;
+  width: min(100%, 56rem);
+  margin: 1rem auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: calc(100% - 1rem);
+    margin: 0.5rem auto;
+    padding: 0.75rem;
+  }
 }

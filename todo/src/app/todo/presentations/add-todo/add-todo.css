@@ -1,5 +1,5 @@
 .form-group {
-  width: min(100%, 32rem);
+  width: 100%;
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
@@ -7,10 +7,24 @@
 }
 
 .form-group .form-control {
-  flex: 0 0 80%;
+  flex: 1 1 auto;
   min-width: 0;
+  height: 42px;
+  padding: 0.75rem 0.875rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font: inherit;
+  box-sizing: border-box;
 }
 
-.form-group .btn {
-  flex: 0 0 20%;
+.form-group .form-control:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.form-group .primary-button {
+  flex: 0 0 auto;
+  height: 42px;
+  padding: 0.75rem 1.25rem;
 }
