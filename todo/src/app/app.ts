@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { TodoItem } from '../shared/models/TodoItem';
-import { EventType } from '../shared/models/Event';
-import { TodoList } from './todo-list/todo-list';
-import { AddTodo } from './add-todo/add-todo';
-import { FilterTodos, TodoItemFilter } from './filter-todos/filter-todos';
-import { EventService } from '../shared/services/EventService';
-import { TodoService } from './todo-service';
+import { TodoItem } from './todo/models/TodoItem';
+import { TodoList } from './todo/presentations/todo-list/todo-list';
+import { AddTodo } from './todo/presentations/add-todo/add-todo';
+import { FilterTodos, TodoItemFilter } from './todo/presentations/filter-todos/filter-todos';
+import { EventType } from './todo/models/Event';
+import { EventService } from './todo/services/events/EventService';
+import { TodoService } from './todo/services/todo/todo-service';
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, TodoList, AddTodo, FilterTodos],
+  imports: [TodoList, AddTodo, FilterTodos],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
-import { TodoItem } from '../shared/models/TodoItem';
+import { TodoItem } from '../../models/TodoItem';
 
 const url = 'http://localhost:3000/todos';
 

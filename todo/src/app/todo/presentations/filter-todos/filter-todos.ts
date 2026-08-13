@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { TodoItem } from '../../shared/models/TodoItem';
+import { TodoItem } from '../../models/TodoItem';
 
 export type TodoItemFilter = (item: TodoItem) => boolean;
 

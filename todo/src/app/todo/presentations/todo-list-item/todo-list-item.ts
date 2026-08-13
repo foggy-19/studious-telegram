@@ -1,8 +1,8 @@
-import { Component, Input, Output, EventEmitter, inject, Inject } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NgClass } from '@angular/common';
-import { Event, EventType } from '../../shared/models/Event';
-import { EventService } from '../../shared/services/EventService';
-import { TodoItem } from '../../shared/models/TodoItem';
+import { Event, EventType } from '../../models/Event';
+import { EventService } from '../../services/events/EventService';
+import { TodoItem } from '../../models/TodoItem';
 
 @Component({
   selector: 'app-todo-list-item',
