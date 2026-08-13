@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ContactValidators } from './validators/contact-validators';
 
 @Component({
   selector: 'app-contact',
@@ -10,7 +11,11 @@ import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angula
 export class Contact {
   group = new FormGroup({
     nameControl: new FormControl('', Validators.required),
-    emailControl: new FormControl('', [Validators.required, Validators.email]),
+    emailControl: new FormControl('', [
+      Validators.required,
+      Validators.email,
+      ContactValidators.createInvalidDomainValidator(['gmail.com', 'yahoo.com', 'hotmail.com']),
+    ]),
     messageControl: new FormControl('', [Validators.required, Validators.minLength(10)]),
   });
 

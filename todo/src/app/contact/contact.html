@@ -21,6 +21,9 @@
       } 
       @if (hasError("emailControl", "email")) {
       <small class="text-danger">Invalid email format</small>
+      } 
+      @if (hasError("emailControl", "invalidEmailDomain")) {
+      <small class="text-danger">Invalid email domain</small>
       }
     </div>
     }
