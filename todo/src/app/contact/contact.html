@@ -1,18 +1,45 @@
-<form class="contact-form" (submit)="$event.preventDefault()">
+<form class="contact-form" (submit)="$event.preventDefault(); submit()" [formGroup]="group">
   <div class="form-field">
     <label for="contact-name">Your name</label>
-    <input id="contact-name" name="name" type="text" />
+    <input id="contact-name" name="name" type="text" formControlName="nameControl" />
+    @if (isInvalid("nameControl")) {
+    <div>
+      @if(hasError("nameControl", "required")) {
+      <small class="text-danger">Name is required</small>
+      }
+    </div>
+    }
   </div>
 
   <div class="form-field">
     <label for="contact-email">Your email address</label>
-    <input id="contact-email" name="email" type="email" />
+    <input id="contact-email" name="email" type="email" formControlName="emailControl" />
+    @if (isInvalid("emailControl")) {
+    <div>
+      @if(hasError("emailControl", "required")) {
+      <small class="text-danger">Email is required</small>
+      } 
+      @if (hasError("emailControl", "email")) {
+      <small class="text-danger">Invalid email format</small>
+      }
+    </div>
+    }
   </div>
 
   <div class="form-field">
     <label for="contact-message">Message</label>
-    <textarea id="contact-message" name="message" rows="4"></textarea>
+    <textarea id="contact-message" name="message" rows="4" formControlName="messageControl"></textarea>
+    @if (isInvalid("messageControl")) {
+    <div>
+      @if(hasError("messageControl", "required")) {
+      <small class="text-danger">Message is required</small>
+      } 
+      @if (hasError("messageControl", "minlength")) {
+      <small class="text-danger">Message must be at least 10 characters long</small>
+      }
+    </div>
+    }
   </div>
 
-  <button type="submit" class="primary-button">Send Message</button>
+  <button type="submit" class="primary-button" [disabled]="group.invalid">Send Message</button>
 </form>

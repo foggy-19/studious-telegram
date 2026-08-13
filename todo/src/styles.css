@@ -24,3 +24,17 @@
 .primary-button:active {
   transform: translateY(1px);
 }
+
+.primary-button:disabled,
+.primary-button[disabled] {
+  background: #93c5fd;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: not-allowed;
+  opacity: 0.7;
+  transform: none;
+}
+
+.primary-button:disabled:hover,
+.primary-button[disabled]:hover {
+  background: #93c5fd;
+}
