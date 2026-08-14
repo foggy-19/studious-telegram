@@ -35,6 +35,12 @@
     </svg>
     <h1>Hello, {{ title() }}</h1>
     <p>Congratulations! Your app is running. 🎉</p>
+    <div class="nav">
+      <a routerLink="first">First</a>
+      <a routerLink="second">Second</a>
+      <a href="#" (click)="$event.preventDefault(); goToZero()">Zero</a>
+      <a routerLink="products">Go to store</a>
+    </div>
   </div>
   <div class="line"></div>
   <div class="router-container">
