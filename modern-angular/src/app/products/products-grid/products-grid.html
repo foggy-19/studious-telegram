@@ -1,0 +1,30 @@
+<div class="products-container">
+  @if (products().length > 0) {
+    <p>Total products: {{ products().length }}</p>
+  }
+
+  <mat-form-field class="search-field" , appearance="outline">
+    <mat-label>Search</mat-label>
+    <input matInput [(ngModel)]="searchTerm" type="text" placeholder="e.g. headphones" />
+    @if (searchTerm()) {
+      <button matSuffix matIconButton aria-label="Clear" (click)="clearSearch()">
+        <mat-icon>clear</mat-icon>
+      </button>
+    }
+  </mat-form-field>
+
+  @if (searchTerm()) {
+    <span class="search-preview">Searching for {{ searchTerm().trim() }}</span>
+  }
+
+  <div class="products-grid">
+    @for (product of filteredProducts(); track product.id) {
+      <app-product-card [product]="product" (addToCart)="onAddToCart($event)"> </app-product-card>
+    } @empty {
+      <div class="empty-state">
+        <mat-icon>inventory_2</mat-icon>
+        <p>No products match your search</p>
+      </div>
+    }
+  </div>
+</div>

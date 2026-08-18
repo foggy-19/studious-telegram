@@ -1,0 +1,23 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Premium Wireless Headphones",
+      "description": "High quality wireless headphones with noise cancellation and premium sound features.",
+      "price": 199.99,
+      "originalPrice": 249.99
+    },
+    {
+      "id": 2,
+      "name": "Smart Fitness Watch",
+      "description": "Track your fitness goals with this advanced smart watch featuring heart rate sensor.",
+      "price": 299.99
+    },
+    {
+      "id": 3,
+      "name": "Portable bluetooth speaker",
+      "description": "Compact speaker with powerful bass and 12-hour battery life.",
+      "price": 89.99
+    }
+  ]
+}

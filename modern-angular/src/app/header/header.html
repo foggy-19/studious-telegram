@@ -1,0 +1,22 @@
+<mat-toolbar class="main-header">
+  <button matIconButton="elevated">
+    <mat-icon aria-hidden="false" aria-label="store icon" fontIcon="store"></mat-icon>
+  </button>
+
+  <span class="branding">Modern Angular</span>
+
+  <span class="spacer"></span>
+
+  <button matButton="elevated">
+    <span>Products</span>
+  </button>
+
+  <button matButton="elevated">
+    <mat-icon
+      aria-hidden="false"
+      aria-label="shopping cart icon"
+      fontIcon="shopping_cart"
+    ></mat-icon>
+    <span>{{ cartService.totalItems() }}</span>
+  </button>
+</mat-toolbar>
