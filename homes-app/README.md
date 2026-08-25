@@ -18,3 +18,5 @@
 - Run the application 
 
   `ng serve`
+
+- check it out now
